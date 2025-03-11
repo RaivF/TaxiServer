@@ -4,13 +4,19 @@ const axios = require('axios') // Для отправки сообщений в 
 
 const app = express()
 
+const corsOptions = {
+	origin: 'http://38.180.160.26', // Укажите домен вашего фронтенда
+	methods: 'GET,POST', // Укажите разрешенные методы
+	credentials: true, // Разрешить передачу куки и заголовков авторизации
+}
+
 // Middleware
-app.use(cors()) // Разрешаем запросы с любого источника
+app.use(cors(corsOptions)) // Применяем настройки CORS
 app.use(express.json()) // Для обработки JSON-данных
 
 // Токен вашего бота и chat_id
 const TELEGRAM_BOT_TOKEN = '7673196064:AAGoAJFZpKnb63QDhkC_pcxrnT7Q3RYG858'
-const TELEGRAM_CHAT_ID = 1114712689
+let TELEGRAM_CHAT_ID = 1114712689
 
 export const getChatId = async () => {
 	const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates`
