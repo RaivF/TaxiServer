@@ -27,7 +27,8 @@ export const getChatId = async () => {
 
 		// Извлекаем chat_id из ответа
 		if (response.data.ok && response.data.result.length > 0) {
-			const chatId = response.data.result[length - 1].message.chat.id
+			const chatId =
+				response.data.result[response.data.result.length].message.chat.id
 			console.log('Ваш chat_id:', chatId)
 			TELEGRAM_CHAT_ID = chatId
 		} else {
