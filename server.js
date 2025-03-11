@@ -1,6 +1,6 @@
-const express = require('express')
-const cors = require('cors') // Для обработки CORS
-const axios = require('axios') // Для отправки сообщений в Telegram
+import express from 'express'
+import cors from 'cors' // Для обработки CORS
+import axios from 'axios' // Для отправки сообщений в Telegram
 
 const app = express()
 
